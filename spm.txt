@@ -1,0 +1,658 @@
+Part II — SPM Practical Theory (in depth)
+Great — I’ll give you a comprehensive, exam-ready explanation for the three practicals you listed: (12) Create Project Plan, (13) Execute & Monitor Project Plan, and (14) Generate Dashboard & Reports. For each practical you’ll get:
+
+
+clear theory,
+
+
+step-by-step procedures,
+
+
+sample data & templates you can reuse in your practical,
+
+
+important formulas (with a worked example for Earned Value),
+
+
+common pitfalls, and
+
+
+likely viva/short-answer questions with model answers.
+
+
+
+12 — Create Project Plan
+1. What is a project plan?
+A project plan is a formal, approved document that guides project execution and control. It contains the scope, schedule, resources, budget, milestones, risk responses, and baselines (schedule & cost). The plan answers: what will we do, when, by whom, for how long, and at what cost?
+
+2. Key elements you must show in the practical
+1) Project name & start (or finish) date
+
+
+Example: Project Name: “Student Portal Website”
+
+
+Planned Start Date: 10 Nov 2025
+
+
+(If scheduling from finish date, you create backward schedule; most labs use forward scheduling from start date.)
+
+
+2) Identify and define project tasks (Work Breakdown Structure — WBS)
+
+
+Break the project into hierarchical tasks (levels). WBS makes tasks manageable and measurable.
+
+
+Example WBS for Student Portal:
+1.0 Project Management
+2.0 Requirements
+3.0 Design
+4.0 Development
+5.0 Testing
+6.0 Deployment & Training
+
+
+Each major deliverable splits into tasks (e.g., 4.0 Development → 4.1 Backend APIs, 4.2 Frontend UI, 4.3 Integration).
+
+
+3) Define duration for each task
+
+
+Duration = working time required (days / hours). Typically use working days (mon–fri).
+
+
+Example table:
+
+
+Task IDTask NameDuration (days)2.1Gather Requirements53.1Create UI Mockups34.1Backend Development105.1Unit Testing4
+4) Define milestones
+
+
+Milestones are zero-duration markers for important events (e.g., Requirements Approved, Prototype Demo, UAT Completed).
+
+
+Example: Milestone: Requirements Approval — Date: 20 Nov 2025.
+
+
+5) Define dependencies between tasks
+
+
+Dependencies types:
+
+
+Finish-to-Start (FS) — most common (A must finish before B starts).
+
+
+Start-to-Start (SS) — B can start once A starts.
+
+
+Finish-to-Finish (FF) — B must finish when A finishes or earlier.
+
+
+Start-to-Finish (SF) — rare.
+
+
+
+
+Example: Backend Development (4.1) FS → Integration (4.3).
+
+
+6) Define project calendar
+
+
+Project calendar shows working days, weekends, holidays, shifts, and working hours per day.
+
+
+Example: Mon–Fri, 9:00–17:00, 1-hour lunch; public holiday 25 Dec excluded.
+
+
+7) Define project resources and resource types
+
+
+Resource types:
+
+
+Work (human) — developers, testers, designers (measured in hours/day or FTE).
+
+
+Material — consumables, printing paper (quantity-based).
+
+
+Cost/Financial — equipment hire, license fees (currency).
+
+
+
+
+Example resources:
+
+
+Dev1: Backend Developer (Work)
+
+
+Dev2: Frontend Developer (Work)
+
+
+QA1: Tester (Work)
+
+
+Server: Cloud VM (Material)
+
+
+License: Database License (Cost)
+
+
+
+
+8) Assign resources to tasks and baseline the plan
+
+
+Assign resource(s) to each task with units (e.g., Dev1 @ 100% = 8hrs/day).
+
+
+Baseline: snapshot of planned schedule, cost, and scope used later to compare actuals vs planned. Baseline the project after finalizing scope & schedule (Project → Set Baseline).
+
+
+
+3. Sample mini project plan (table)
+IDTaskDur (days)PredecessorResourceUnits1Project Kickoff1—PM50%2Requirements51BA100%3Design42UI Designer100%4Backend Dev103Dev1100%5Frontend Dev103Dev2100%6Integration34,5Dev1,Dev250%7Testing56QA1100%M1Requirements OK02——
+
+4. Common mistakes (lab practical)
+
+
+Not setting appropriate task dependencies → unrealistic schedule.
+
+
+Mixing duration (days) and effort (hours) incorrectly — keep consistent units.
+
+
+Forgetting resource calendar (e.g., assigning a resource on a holiday).
+
+
+Not baselining before tracking — you’ll have nothing to compare to.
+
+
+Not indicating milestones as zero-duration tasks.
+
+
+
+13 — Execute and Monitor Project Plan
+Purpose
+Execution & monitoring is the running phase where planned work is performed, progress is tracked, and corrective actions are applied. Monitoring answers: Are we on time and within budget? If not, why and what will we do?
+
+1. Update %Complete with current task status
+
+
+% Complete methods:
+
+
+Duration % Complete — percentage based on elapsed duration (simple).
+
+
+Work % Complete — based on actual work done vs planned work (more accurate if resources report hours).
+
+
+Physical % Complete — used with percent complete measured by deliverable progress (construction-like).
+
+
+
+
+Example: Task with 5 days duration, 2 days passed and all work done → 40% duration-complete.
+
+
+How to update:
+
+
+Project managers or resource owners update tasks in the tool (MS Project / Primavera / any PM tool) with actual start date, actual finish date, actual duration, actual work (hours), and % complete.
+
+
+
+2. Review the status of each task
+
+
+For each task check:
+
+
+Actual start vs planned start.
+
+
+Actual finish vs planned finish.
+
+
+% Complete and remaining duration.
+
+
+Who did the work (resource assignments & hours).
+
+
+
+
+Update Actual Work, Remaining Work, and Actual Cost.
+
+
+
+3. Compare Planned vs Actual
+
+
+Compare Baseline vs Current Schedule:
+
+
+Planned Start vs Actual Start
+
+
+Baseline Finish vs Current Finish
+
+
+Planned Cost vs Actual Cost
+
+
+
+
+Use key fields: Variance, % Complete, and graphs (Gantt with baseline overlay).
+
+
+
+4. Review Critical Path
+
+
+Critical Path is the sequence of tasks that determines project duration (total float = 0).
+
+
+Monitoring:
+
+
+Recompute critical path after each update; tasks can become critical or non-critical.
+
+
+If critical path contains delayed tasks, project completion is at risk — consider crashing (add resources) or fast tracking (overlap tasks).
+
+
+
+
+Tools show critical tasks (red bars). Always monitor total float and free float.
+
+
+
+5. Review resource assignments status
+
+
+Look for:
+
+
+Overallocated resources (resource assigned more hours than calendar allows).
+
+
+Idle resources (underutilized).
+
+
+Conflicts in calendars (someone assigned while on vacation).
+
+
+
+
+Resource leveling: postpone or split tasks to resolve overallocations; may change project finish date.
+
+
+
+6. Key tracking fields to update in practical
+
+
+Actual Start / Actual Finish
+
+
+Actual Duration / Remaining Duration
+
+
+Actual Work (hours) / Remaining Work
+
+
+% Complete
+
+
+Actual Cost / Remaining Cost
+
+
+Variance fields (Schedule Variance, Cost Variance) if tool supports EV.
+
+
+
+7. Sample monitoring entry
+TaskBaseline StartBaseline FinishActual Start%CompleteRemaining DurRemarksBackend Dev20 Nov30 Nov22 Nov40%6 daysDelay due to API spec changes
+
+14 — Generate Dashboard and Reports
+A dashboard and reports present the project status to stakeholders using concise, actionable metrics and visuals.
+1. Typical dashboard components (KPIs)
+
+
+Project Overview: Project name, baseline start/finish, current finish, % Complete, health (RAG).
+
+
+Schedule KPIs: Current Finish vs Baseline Finish, Schedule Variance (SV), Schedule Performance Index (SPI).
+
+
+Cost KPIs: Budget At Completion (BAC), Earned Value (EV), Actual Cost (AC), Cost Variance (CV), Cost Performance Index (CPI).
+
+
+Resource KPIs: Overallocated resources, resource utilization %, upcoming resource shortages.
+
+
+Risk & Issues: Open risks, high-severity issues, mitigation status.
+
+
+Upcoming Tasks / Milestones: Next 7–14 days tasks and upcoming milestones.
+
+
+2. Important report types (from your list)
+Dashboard — Project Overview
+
+
+Snapshot view: % Complete, current schedule health, critical tasks count.
+
+
+Cost Overview
+
+
+Budget, Actual, Forecast to Complete, Remaining Budget.
+
+
+Upcoming Tasks
+
+
+Tasks starting within next N days, tasks due, tasks overdue.
+
+
+Resource Reports
+
+
+Over-allocated Resources — resources assigned beyond availability.
+
+
+Resource Overview — per-resource assigned hours, percent utilization.
+
+
+Cost Reports (Earned Value etc.)
+
+
+Earned Value Report — shows PV, EV, AC, CV, SV, CPI, SPI, ETC, EAC.
+
+
+Resource Cost Overview — cost per resource by month or task.
+
+
+Task Cost Overview — planned vs actual cost per task.
+
+
+Progress Reports
+
+
+Critical Tasks — list of tasks with zero or low float.
+
+
+Milestone Report — milestones status (Not Started / Achieved).
+
+
+Slipping Tasks — tasks behind schedule with delay days.
+
+
+
+3. Earned Value Management (EVM) — formulas & example (must know)
+Key definitions:
+
+
+PV (Planned Value): Budgeted cost of work scheduled (also BCWS).
+
+
+EV (Earned Value): Budgeted cost of work actually performed (also BCWP).
+
+
+AC (Actual Cost): Actual cost incurred for work performed (also ACWP).
+
+
+BAC: Budget at Completion.
+
+
+EAC: Estimate at Completion.
+
+
+ETC: Estimate to Complete.
+
+
+Basic formulas:
+
+
+Schedule Variance (SV) = EV − PV
+
+
+Positive = ahead of schedule; Negative = behind.
+
+
+
+
+Cost Variance (CV) = EV − AC
+
+
+Positive = under budget; Negative = over budget.
+
+
+
+
+Schedule Performance Index (SPI) = EV / PV
+
+
+SPI < 1 = behind schedule.
+
+
+
+
+Cost Performance Index (CPI) = EV / AC
+
+
+CPI < 1 = cost overrun.
+
+
+
+
+Forecasting:
+
+
+EAC (typical) = BAC / CPI (if future performance equals past)
+or EAC = AC + (BAC − EV) (if remaining work at planned rate).
+
+
+ETC = EAC − AC
+
+
+Worked example
+Assume:
+
+
+BAC = ₹100,000 (full project budget)
+
+
+By reporting date:
+
+
+PV = ₹40,000 (planned to have spent ₹40k by now)
+
+
+EV = ₹32,000 (value of work actually done)
+
+
+AC = ₹36,000 (actual cost incurred)
+
+
+
+
+Compute:
+
+
+SV = EV − PV = 32,000 − 40,000 = −8,000 (behind schedule)
+
+
+CV = EV − AC = 32,000 − 36,000 = −4,000 (over budget)
+
+
+SPI = 32,000 / 40,000 = 0.80 (project progressing at 80% of planned speed)
+
+
+CPI = 32,000 / 36,000 = 0.8889 (cost efficiency < 1 → over budget)
+
+
+EAC (if using BAC / CPI) = 100,000 / 0.8889 ≈ 112,500 (projected final cost)
+
+
+Explain these numbers in your report: project is behind schedule and likely to exceed budget; manager must investigate causes and consider corrective actions.
+
+4. Visuals & charts used in dashboard
+
+
+Gantt Chart with baseline overlay (shows planned vs actual bars).
+
+
+Earned Value Curve (S-curves: PV, EV, AC).
+
+
+Resource histogram (workload by week).
+
+
+Pie chart of cost breakdown (labor, materials, license).
+
+
+Burn-down / cumulative progress charts.
+
+
+
+5. Overallocated resources & resolution
+
+
+Detect: resource assigned > available hours in a day/week.
+
+
+Resolve: resource leveling (postpone tasks), resource smoothing (adjust tasks within float), add resources or increase working hours (if allowed).
+
+
+Document decisions and impacts on schedule/cost.
+
+
+
+Common practical/viva questions (with model answers)
+Q1: What is the difference between duration and effort?
+A: Duration is the elapsed time between task start and finish (calendar days). Effort (work) is the actual person-hours required to complete the task. A task of 8 hours work can have duration 1 day (if one person) or 4 days at 2 hours/day (part-time resources).
+
+Q2: What is a baseline and why is it important?
+A: A baseline is a snapshot of approved project scope, schedule, and cost. It is used as the standard to compare actual progress and to measure variances. Without a baseline you cannot measure schedule or cost performance.
+
+Q3: Explain the critical path method (CPM).
+A: CPM finds the longest path through the project network (the sequence of dependent tasks with zero total float). The duration of the critical path equals the project duration. Any delay in a critical task delays the whole project.
+
+Q4: What is float (slack)? Differentiate total float and free float.
+A: Total float is the amount of time a task can be delayed without delaying project finish. Free float is the time a task can be delayed without delaying the earliest start of any successor task.
+
+Q5: How do you compute SPI and CPI and what do they mean?
+A: SPI = EV / PV (schedule efficiency). CPI = EV / AC (cost efficiency). Values < 1 indicate underperformance (behind schedule or over budget), values > 1 indicate better than planned performance.
+
+Q6: What is resource leveling vs resource smoothing?
+A: Leveling changes task start/finish to resolve resource conflicts, may change project finish. Smoothing adjusts tasks within their float so that finish date stays unchanged.
+
+Q7: How do you handle a milestone slip?
+A: Identify root cause, evaluate impact on project, propose corrective action (crash/fast-track, reassign resources), update stakeholders, rebaseline if scope/budget change is approved.
+
+Q8: How to calculate EAC?
+A: Common formulas:
+
+
+If future performance equals past: EAC = BAC / CPI.
+
+
+If future work will be done at planned rate: EAC = AC + (BAC − EV).
+Pick formula based on situation and justify.
+
+
+
+Q9: How do you report a delayed project to stakeholders?
+A: Present facts: schedule and cost variances (SV, CV), critical tasks causing delay, proposed corrective actions with pros/cons and estimated schedule/cost impacts, and request decisions/approvals.
+
+Q10: What is an over-allocated resource and how to detect it?
+A: Over-allocated resource is assigned more work than available hours. Detect via resource histogram (bars exceeding capacity) or resource usage table. Resolve through leveling, reassigning, or adjusting calendars.
+
+Practical tips — what examiners look for
+
+
+Show clear WBS and properly numbered tasks.
+
+
+Provide dependency types explicitly (FS, SS etc.).
+
+
+Show resource assignment with units (% or hours).
+
+
+Baseline the project and then show at least one update (actuals) to derive variances.
+
+
+Include one EVM calculation (EV/PV/AC + CPI/SPI + short commentary).
+
+
+Present screenshots of Gantt with baseline overlay (if using MS Project) or clearly drawn Gantt in your document.
+
+
+Produce at least one dashboard screenshot or mock (charts or KPI table).
+
+
+Explain any corrective action decisions and reason for re-baselining (if re-baselined, justify scope change & approval).
+
+
+
+Example viva-style mini Q&A (short answers to memorize)
+Q: What is a milestone?
+A: A zero-duration marker that signals a major event (e.g., approvals).
+Q: Which dependency is the most common?
+A: Finish-to-Start (FS).
+Q: What happens to critical path after resource leveling?
+A: It may change; project finish date can shift and tasks may become critical.
+Q: If CPI = 0.9, what does it mean?
+A: For every ₹1 spent, you’re getting ₹0.90 worth of planned value — project is over budget; expect higher final cost.
+Q: When to rebaseline?
+A: Only after formal change control when scope, time, or budget changes are approved such that baseline no longer reflects the approved plan.
+
+Quick checklist to prepare for lab/demo
+
+
+Create WBS + tasks + durations + dependencies.
+
+
+Setup project calendar and resource calendar.
+
+
+Assign resources and set units.
+
+
+Baseline the project.
+
+
+Run one or two updates (set actual start, actual work, % complete) so you can show monitoring.
+
+
+Produce EV numbers and compute SV, CV, SPI, CPI and EAC.
+
+
+Generate Gantt with baseline, resource histogram, and one dashboard screen (KPIs).
+
+
+Prepare to explain one corrective action and its impact (e.g., fast track testing to recover 4 days).
+
+
+
+If you want, I can:
+
+
+create a ready-to-use sample MS-Project-style CSV you can import (tasks, durations, predecessors, resources),
+
+
+generate an EV calculation worksheet in Excel format with formulas and the worked example,
+
+
+or convert the above mini-project into a step-by-step lab submission document you can hand in.
+
+
+Which would be most helpful right now?
